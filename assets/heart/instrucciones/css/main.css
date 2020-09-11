@@ -1,0 +1,78 @@
+@font-face {
+	font-family: "GothamLight";
+	src: url("../../../assets/stamina/font/Gotham/GothamLight.otf");
+}
+
+body {
+	overflow-x: hidden;
+	font-family: "GothamBook";
+	font-size: 1.1em;
+}
+
+
+.principal{
+	width: 80%;
+	margin: 1em auto;
+	padding: 1em 5%;
+	background: #fff;
+}
+
+.multiple{
+	background-color: #f2f2f2;
+	border: 2px solid #ddd;
+	border-radius: 3px;
+	margin: 20px auto;
+	padding: 0 10px;
+}
+
+
+.main-header-irc {
+	background-color: #002b7a !important;
+}
+
+.footer-irc {
+	background-color: #002b7a !important;
+	color: #fff3cd !important;
+}
+
+i {
+	margin: 10px;
+}
+
+.icono-w {
+	color: #ffffff;
+}
+
+.fas {
+	color: #808080;
+	font-size: 25px;
+}
+
+.shadow-e {
+	box-shadow: 0 4px 8px 0 rgba(116, 97, 128, 0.34), 0 6px 20px 0 rgba(116, 97, 128, 0.34);
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(116, 97, 128, 0.34), 0 6px 20px 0 rgba(116, 97, 128, 0.34);
+}
+
+.btn-danger {
+	color: #fff;
+	background-color: #ec9494;
+	border-color: #dc3545;
+	box-shadow: none;
+}
+
+.btn-danger:not(:disabled):not(.disabled).active, .btn-danger:not(:disabled):not(.disabled):active, .show>.btn-danger.dropdown-toggle {
+	color: #fff;
+	background-color: #f18d97;
+	border-color: #b21f2d;
+}
+
+.alert-success {
+	color: #fff;
+	background: #b38ff7;
+	border-color: #986cea;
+}
+
+
