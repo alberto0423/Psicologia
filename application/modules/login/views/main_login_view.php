@@ -4,7 +4,7 @@
 
 
 <div class="container">
-	<div class="card bg-gradient-light">
+	<div class="card bg-gradient-gray">
 		<div class="card-body text-center">
 			<?php echo form_open(); ?>
 			<div class="input-group mb-3">

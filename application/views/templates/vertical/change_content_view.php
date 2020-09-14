@@ -42,7 +42,13 @@ $btn_save_sessión = array(
 
 				<div class="info-box-content">
 					<span class="info-box-text text-bold">Total de pacientes asigandos</span>
-					<span class="info-box-number"><?php echo(isset($currentAsign) ? $currentAsign: "Sin datos");?></span>
+
+						<?php if(is_array($currentAsign) && $currentAsign != NULL):?>
+							<span class="info-box-number"><?php echo(count($currentAsign));?></span>
+						<?php else:?>
+							<span class="info-box-number"><?php echo(isset($currentAsign) ? $currentAsign: "Sin datos");?></span>
+
+						<?php endif;?>
 				</div>
 				<!-- /.info-box-content -->
 			</div>
@@ -74,7 +80,7 @@ $btn_save_sessión = array(
 				<!-- Default box -->
 				<div class="card">
 					<div class="card-header bg-gradient-blue">
-						<h3 class="card-title col-12">Modificación Paciente</h3>
+						<h3 class="card-title col-xl-12 text-center">Información de los pacientes</h3>
 
 						<div class="card-tools">
 							<button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
@@ -160,11 +166,12 @@ $btn_save_sessión = array(
 												<thead>
 
 												<tr>
+													<th>Folio</th>
 													<th>Nombre</th>
 													<th>Paterno</th>
 													<th>Materno</th>
 													<th>Fecha de nacimiento</th>
-													<th>Genero</th>
+													<th>Sexo</th>
 													<th>Telefono</th>
 													<th>Celular</th>
 													<th>Correo</th>
@@ -279,21 +286,23 @@ $btn_save_sessión = array(
 
 
 														?>
-
-														<?php echo "<tr><td>" . $key_paciente['nombre'] . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['paterno'] . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['materno'] . "</td>" ?>
-														<?php echo "<td>" . $burn . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['genero'] . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['telefono'] . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['celular'] . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['email'] . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['direccion'] . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['carrera'] . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['semestre'] . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['cuenta'] . "</td>" ?>
-														<?php echo "<td>" . $turn . "</td>" ?>
-														<?php echo "<td>" . $key_paciente['promedio'] . "</td></tr>" ?>
+														<tr>
+															<td><?php echo $key_paciente['year'].'-'.$key_paciente['semester'].'-'.$key_paciente['folio']?></td>
+															<td><?php echo $key_paciente['nombre']?></td>
+															<td><?php echo $key_paciente['paterno']?></td>
+															<td><?php echo $key_paciente['materno']?></td>
+															<td><?php echo $burn?></td>
+															<td><?php echo $key_paciente['genero']?></td>
+															<td><?php echo $key_paciente['telefono']?></td>
+															<td><?php echo $key_paciente['celular']?></td>
+															<td><?php echo $key_paciente['email']?></td>
+															<td><?php echo $key_paciente['direccion']?></td>
+															<td><?php echo $key_paciente['carrera']?></td>
+															<td><?php echo $key_paciente['semestre']?></td>
+															<td><?php echo $key_paciente['cuenta']?></td>
+															<td><?php echo $turn?></td>
+															<td><?php echo $key_paciente['promedio']?></td>
+														</tr>
 
 
 													<?php endforeach; ?>

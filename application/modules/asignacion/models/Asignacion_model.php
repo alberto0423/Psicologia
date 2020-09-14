@@ -232,7 +232,7 @@ class asignacion_model extends CI_Model
 		#var_dump($where);
 		$this->db->select();
 		$this->db->from($this->tbl_paciente);
-		$this->db->join($this->tbl_asignacion,$this->tbl_asignacion. '.id_paciente = '. $this->tbl_paciente.' .id');
+		#$this->db->join($this->tbl_asignacion,$this->tbl_asignacion. '.id_paciente = '. $this->tbl_paciente.' .id');
 
 
 		if ($where) {

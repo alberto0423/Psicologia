@@ -43,7 +43,7 @@ class Principal extends MX_Controller
 				);
 			#	var_dump($dataSession);
 				$saveSession->saveDataSession($dataSession);
-				redirect('escritorio/principal');
+				redirect('historial/Inicio');
 			}
 		}
 	}
@@ -105,8 +105,6 @@ class Principal extends MX_Controller
 
 			'asignados' 		=> $this->session->userdata('usuario')['id'],
 			'request_ajax'		=>	(isset($request) ? $request : "Sin datos"),
-
-			#	var_dump($this->session->userdata('usuario')['id'])
 		);
 
 

@@ -85,8 +85,13 @@ class Principal	extends MX_Controller
 					'cuenta'		=>	$total->numero_cuenta,
 					'turno'			=>	$total->turno,
 					'promedio'		=>	$total->promedio,
+					'year'			=>	$total->anio,
+					'folio'			=>	$total->num_folio,
+					'semester'		=>	$total->tipo_semestre
 
 				];
+
+			#	var_dump($total);
 
 			}
 
@@ -120,9 +125,15 @@ class Principal	extends MX_Controller
 
 			}
 		}
-		#	var_dump($all_asing);
+		if (isset($all_asing))
+		{
+			return $all_asing;
+		}else
+		{
+			return 0;
+		}
 
-		return count($all_asing);
+		#return count($all_asing);
 	}
 
 
@@ -130,20 +141,26 @@ class Principal	extends MX_Controller
 	{
 		$appointment = new Session_model();
 
-		#var_dump($appointment->getAppoinment($this->session->userdata('usuario')['id']));
-		#return 	count($appointment->getUsersAppoinment($this->session->userdata('usuario')['id']));
+		if (is_array($appointment->getAppoinment($this->session->userdata('usuario')['id'])) AND $appointment->getAppoinment($this->session->userdata('usuario')['id'])) {
 
-		return $appointment->getUsersAppoinment($this->session->userdata('usuario')['id']);
+			return	count( $appointment->getAppoinment($this->session->userdata('usuario')['id']));
+		}else
+		{
+			return 0;
+		}
+
 	}
 
 
 	public function index()
 	{
-		$totalUsers		=	$this->counterUsers();
-		$allUsers		=	$this->getAllUsers();
-		$asignados		=	$this->current_asign();
+		$totalUsers	=	$this->counterUsers();
+		$allUsers	=	$this->getAllUsers();
+		$asignados	=	$this->current_asign();
+
 		$currentAsign 	= 	$this->current_asign();
 		$currentAppoint	=	$this->patientsAppoinment();
+
 
 
 
@@ -152,14 +169,18 @@ class Principal	extends MX_Controller
 		{
 			if ($this->session->userdata('usuario')['nivel'] == 1 AND $this->session->userdata('usuario')['activo'] == 1)
 			{
+			#	var_dump($allUsers);
 				$data   =   array(
-					'totalUsers'		=>	(isset($totalUsers) ? $totalUsers: "Sin datos"),
-					'allUsers'			=>	(isset($allUsers) ? $allUsers : "Sin datos"),
-					'asignados'			=>	(isset($asignados) ? $asignados: "Sin datos"),
+					'totalUsers'	=>	(isset($totalUsers) ? $totalUsers: "Sin datos"),
+					'allUsers'		=>	(isset($allUsers) ? $allUsers : "Sin datos"),
+					'asignados'		=>	(isset($asignados) ? $asignados: "Sin datos"),
+					'currentAsign'	=>	(isset($currentAsign) ? $currentAsign: "Sin datos"),
+					'currentAppoint'	=>	(isset($currentAppoint) ? $currentAppoint: "Sin datos"),
 
 
 
-			);
+
+				);
 
 				$data = array(
 
@@ -169,15 +190,15 @@ class Principal	extends MX_Controller
 				);
 
 				$data = [
-					'navbar' => $this->load->view('templates/vertical/navbar_view', $data, TRUE),
-					'main_content' => $this->load->view('templates/vertical/main_content_view', $data, TRUE),
-					'aside' => $this->load->view('templates/vertical/aside_view', $data, TRUE),
-					'footer' => $this->load->view('templates/vertical/footer_view', $data, TRUE),
+					'navbar' 		=> $this->load->view('templates/vertical/navbar_view', $data, TRUE),
+					'main_content' 	=> $this->load->view('templates/vertical/main_content_view', $data, TRUE),
+					'aside' 		=> $this->load->view('templates/vertical/aside_view', $data, TRUE),
+					'footer' 		=> $this->load->view('templates/vertical/footer_view', $data, TRUE),
 				];
 
 				$data = array(
 					'horizontal_select' => TRUE,
-					'horizontal' => $this->load->view('templates/vertical/horizontal_view', $data, TRUE),
+					'horizontal' 		=> $this->load->view('templates/vertical/horizontal_view', $data, TRUE),
 					//'vertical'          => $this->load->view('templates/vertical/vertical_view', $data, TRUE)
 				);
 
