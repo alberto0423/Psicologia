@@ -671,7 +671,7 @@ $drop_down = array(
 
 							<div class="col-xl-12  cita">
 								<label>Indica los posibles días y horarios en los cuales podrías acudir a tu cita, estos son
-									de referencia para asignar únicamente la primer cita.</label>
+									de referencia para asignar únicamente la primera cita.</label>
 
 								<input type="text" name="atencion" value="" id="nextDate" class="form-control"
 									   data-toggle="tooltip" title="Ingresa tu nombre" placeholder="Día y Fecha">
@@ -729,4 +729,3 @@ $drop_down = array(
 	</div>
 
 </section>
-
