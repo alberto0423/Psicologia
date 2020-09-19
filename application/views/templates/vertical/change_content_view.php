@@ -40,6 +40,7 @@ $btn_save_sessión = array(
 		<div class="info-box">
 			<span class="info-box-icon bg-success"><ion-icon name="arrow-undo-outline"></ion-icon></span>
 
+
 			<div class="info-box-content">
 				<span class="info-box-text text-bold">Total de pacientes asigandos</span>
 
@@ -49,6 +50,7 @@ $btn_save_sessión = array(
 					<span class="info-box-number"><?php echo(isset($currentAsign) ? $currentAsign: "Sin datos");?></span>
 
 				<?php endif;?>
+
 			</div>
 			<!-- /.info-box-content -->
 		</div>

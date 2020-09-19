@@ -3,12 +3,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-6">
-					<img src="<?php echo base_url()?>assets/heart/img/logos/fes_logo_mini.png"  alt="Fes Aragón" class="img-fluid img-rounded float-left" width="100" height="100">
+					<img src="<?php echo base_url()?>assets/heart/img/logos/logo_unam_mini.jpg"  alt="UNAM" class="img-fluid img-rounded float-left" width="100" height="100">
 				</div>
 
 
 				<div class="col-6">
-					<img src="<?php echo base_url()?>assets/heart/img/logos/unam_logo.png"  alt="Unam" class="img-fluid img-rounded float-right" width="100" height="100">
+					<img src="<?php echo base_url()?>assets/heart/img/logos/fes_logo_mini.png"  alt="FES ARAGÓN" class="img-fluid img-rounded float-right" width="100" height="100">
 				</div>
 
 			</div>
@@ -33,4 +33,3 @@
 
 	</nav>
 </header>
-

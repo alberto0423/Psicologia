@@ -182,9 +182,6 @@ class Principal	extends MX_Controller
 					'currentAsign'	=>	(isset($currentAsign) ? $currentAsign: "Sin datos"),
 					'currentAppoint'	=>	(isset($currentAppoint) ? $currentAppoint: "Sin datos"),
 
-
-
-
 				);
 
 				$data = array(
