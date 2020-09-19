@@ -107,8 +107,7 @@ class Principal extends CI_Controller
 
 			$buscar = new asignacion_model();
 			$totalUsers	=	$buscar->getCount();
-		#	var_dump($totalUsers);
-			#$buscar->asignacion_paciente();
+
 			$i = 0;
 
 
@@ -213,9 +212,10 @@ class Principal extends CI_Controller
 					'carrera' 	=> $paciente->carrera,
 					'motivo'	=> $paciente->motivo_servicio_psicologico,
 					'status'	=>	$paciente->status,
+					'semestre'	=>	$paciente->semestre
 				//	'activo'	=>	$paciente->activo,
 				];
-
+#var_dump($paciente);
 
 			}
 

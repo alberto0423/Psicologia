@@ -11,30 +11,34 @@
 					   width="100%">
 					<thead>
 					<tr>
+						<th># Sesión</th>
 						<th>Nombre</th>
 						<th>Apellido Paterno</th>
 						<th>Apellido Materno</th>
 						<th>Fecha de Nacimiento</th>
+						<th>Nota</th>
+						<th>Fecha de la sesión</th>
+						<th>Fecha de la próxima sesión</th>
 
 
 					</tr>
 					</thead>
 					<tbody>
-					<?php if (is_array($sessions) != null): ?>
+					<?php if(is_array($sessions) != NULL):?>
+						<?php foreach ($sessions as $session):?>
+							<tr>
+								<td><?php echo $session->numero_sesion?></td>
+								<td><?php echo $session->nombre?></td>
+								<td><?php echo $session->paterno?></td>
+								<td><?php echo $session->materno?></td>
+								<td><?php echo $session->fecha_nacimiento?></td>
+								<td><?php echo $session->nota_sesion;?></td>
+								<td><?php echo $session->fecha;?></td>
+								<td><?php echo $session->proxima_sesion?></td>
+							</tr>
+						<?php endforeach;?>
 
-						<?php foreach ($sessions as $session): ?>
-
-							<?php echo "<tr><td>" . $session->nombre . "</td>" ?>
-							<?php echo "<td>" . $session->paterno . "</td>" ?>
-							<?php echo "<td>" . $session->materno . "</td>" ?>
-
-							<?php echo "<td>" . $session->fecha_nacimiento . "</td>" ?>
-
-
-						<?php endforeach; ?>
-
-					<?php endif; ?>
-
+					<?php endif;?>
 
 					</tbody>
 				</table>

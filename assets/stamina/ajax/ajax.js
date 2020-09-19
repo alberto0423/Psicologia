@@ -84,17 +84,13 @@ function getDateInputs() {
 
 
 		$.ajax({
-			url:	"validateForm",
+			url:  "validateForm",
 			type: "post",
-			data:   dataRecipe,
+			data:  dataRecipe,
 
 			beforeSend: function () {
 				$('.spinner').css('display','inline');
 			}
-
-
-
-
 
 		})
 

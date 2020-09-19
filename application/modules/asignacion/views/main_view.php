@@ -25,6 +25,16 @@
 							'placeholder' => ''
 					);
 
+					/*
+					$btn_save_asign = array(
+							'type' 			=> 'button',
+							'content' 		=> 'Asignar',
+							'class' 		=> 'form-control btn btn-success mb-4',
+							'data-toggle' 	=> "modal" ,
+							'data-target'	=> "#asignacion",
+							'data-whatever'	=>	"@fat"
+					);
+					*/
 
 					$i = 1;
 
@@ -47,11 +57,12 @@
 
 										<tr>
 											<th># de paciente</th>
+											<!--<th>Folio</th>-->
+											<th>Folio</th>
 											<th>Nombres</th>
-											<th>Semestre</th>
-											<th>Fecha de atención</th>
 											<th>Carrera</th>
 											<th>Motivo de consulta</th>
+											<th>Fecha de atención</th>
 											<th>Estatus</th>
 											<th>&nbsp;</th>
 
@@ -142,78 +153,90 @@
 												}
 												?>
 												<?php
+
 												if ($key_paciente['status'] == 0) {
 													$status = form_label('Nuevo ', '', 'class="alert alert-primary"');
-													$btn_save_asign = form_button('Asignar', 'Asignar', 'class="form-control btn btn-success mb-4"   data-toggle="modal"  data-target="#asing" data-whatever="@fat" id="asing"');
+													$btn_save_asign = form_button('Asignar', 'Asignar', 'class="form-control btn btn-success mb-4"   data-toggle="modal"  data-target="#asignacion" id="asignacion"');
 
 												} else if ($key_paciente['status'] == 1) {
 													$status = form_label('Asignado ', '', 'class="alert alert-warning"');
-													$btn_save_asign = form_button('Asignar', 'Asignar', 'class="form-control btn btn-success mb-4"   data-toggle="modal"  data-target="#asing" data-whatever="@fat" id="asing" hidden="hidden');
+												 #	$btn_save_asign = form_button('Asignar', 'Asignar', 'class="form-control btn btn-success mb-4"   data-toggle="modal"  data-target="#asignacion"  id="asignacion" hidden="hidden');
 
 												}
 
 												?>
 
+												<tr>
+													<td><?php echo $key_paciente['id']?></td>
+												<!--<td><?php echo $key_paciente['year'].'-'.$key_paciente['semester'].'-'.$key_paciente['num_folio']?></td>-->
+													<td><?php echo $key_paciente['year'].'-'. $key_paciente['semester'].'-'.$key_paciente['num_folio']?></td>
+													<td><?php echo $key_paciente['name']. ' '.$key_paciente['paterno']. ' '. $key_paciente['materno']?></td>
+													<td><?php echo $key_paciente['carrera']?></td>
+													<td><?php echo $key_paciente['motivo']?></td>
+													<td><?php echo $key_paciente['horario']?></td>
+													<td><?php echo $status?></td>
+													<td>
+														<?php if (isset($btn_save_asign)): ?>
+															<?php echo $btn_save_asign?>
+														<?php else:?>
+															<?php echo " "?>
+														<?php endif;?>
 
-												<?php echo "<tr><td >" . $key_paciente['id'] . "</td>" ?>
-												<?php echo "<td>" . $key_paciente['name'] . ' ' . $key_paciente['paterno'] . ' ' . $key_paciente['materno'] . "</td>" ?>
-												<?php echo "<td>" . $key_paciente['year'] . '-' . $key_paciente['semester'] . '-' . $key_paciente['num_folio'] . "</td>" ?>
-												<?php echo "<td>" . $key_paciente['horario'] . "</td>" ?>
-												<?php echo "<td>" . $key_paciente['carrera'] . "</td>" ?>
-												<?php echo "<td>" . $key_paciente['motivo'] . "</td>" ?>
-												<?php echo "<td>" . $status . "</td>" ?>
-												<?php echo "<td>" . form_button($btn_save_asign) . "</td></tr>" ?>
-
-
-												<div class="modal fade" id="asing" tabindex="-1" role="dialog"
-													 aria-labelledby="exampleModalLabel" aria-hidden="true">
-													<div class="modal-dialog">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title" id="exampleModalLabel">Nueva
-																	Asignación </h5>
-																<button type="button" class="close" data-dismiss="modal"
-																		aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-															<div class="modal-body">
-																<?php echo form_open(); ?>
-
-
-																<div class="form-group">
-																	<label for="message-text" class="col-form-label">Psicologo:</label>
-																	<select name="users" class="custom-select col-md-6">
-																		<option value="0">Selecciona....</option>
-																		<?php foreach ($usuarios as $key_user): ?>
-																			<?php echo "<option value='" . $key_user['id'] . "'>" . $key_user['nombre'] . "</option>"; ?>
-																		<?php endforeach; ?>
-																	</select>
-
-																</div>
-
-
-																<div class="form-group">
-																	<label for="recipient-name" class="col-form-label">Número
-																		de paciente:</label>
-																	<input type="text" class="form-control"
-																		   id="id_paciente" name="paciente">
-																</div>
-																<div class="modal-footer">
-																	<button type="button" class="btn btn-danger"
-																			data-dismiss="modal">Close
-																	</button>
-																	<button type="submit" class="btn btn-success">
-																		Asignar
+													</td>
+													<div class="modal fade" id="asignacion" tabindex="-1" role="dialog"
+														 aria-labelledby="exampleModalLabel" aria-hidden="true">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h5 class="modal-title" id="exampleModalLabel">Nueva
+																		Asignación </h5>
+																	<button type="button" class="close" data-dismiss="modal"
+																			aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
 																	</button>
 																</div>
+																<div class="modal-body">
+																	<?php echo form_open(); ?>
 
-																<?php echo form_close(); ?>
 
+																	<div class="form-group">
+																		<label for="message-text" class="col-form-label">Psicologo:</label>
+																		<select name="users" class="custom-select col-md-6">
+																			<option value="0">Selecciona....</option>
+																			<?php foreach ($usuarios as $key_user): ?>
+																				<?php echo "<option value='" . $key_user['id'] . "'>" . $key_user['nombre'] . "</option>"; ?>
+																			<?php endforeach; ?>
+																		</select>
+
+																	</div>
+
+
+																	<div class="form-group">
+																		<label for="recipient-name" class="col-form-label">Número
+																			de paciente:</label>
+																		<input type="text" class="form-control col-xl-12"
+																			   id="id_paciente" name="paciente">
+																	</div>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-danger"
+																				data-dismiss="modal">Close
+																		</button>
+																		<button type="submit" class="btn btn-success">
+																			Asignar
+																		</button>
+																	</div>
+
+																	<?php echo form_close(); ?>
+
+																</div>
 															</div>
 														</div>
 													</div>
-												</div>
+												</tr>
+
+
+
+
 
 
 											<?php endforeach; ?>
