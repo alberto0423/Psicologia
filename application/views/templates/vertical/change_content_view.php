@@ -22,53 +22,55 @@ $btn_save_sessión = array(
 
 	<div class="row">
 
-		<div class="col-md-4 col-sm-6 col-xs-12">
-			<div class="info-box">
-				<span class="info-box-icon bg-gradient-warning"><ion-icon name="people-outline"></ion-icon></span>
+	<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-gradient-warning"><ion-icon name="people-outline"></ion-icon></span>
 
-				<div class="info-box-content">
-					<span class="info-box-text text-bold">Total de pacientes registrados</span>
-					<span class="info-box-number"><?php echo(isset($totalUsers) ? $totalUsers : "Sin datos"); ?></span>
-				</div>
-				<!-- /.info-box-content -->
+			<div class="info-box-content">
+				<span class="info-box-text text-bold">Total de pacientes registrados</span>
+				<span class="info-box-number"><?php echo(isset($totalUsers) ? $totalUsers : "Sin datos"); ?></span>
 			</div>
-			<!-- /.info-box -->
+			<!-- /.info-box-content -->
 		</div>
+		<!-- /.info-box -->
+	</div>
 
 
-		<div class="col-md-4 col-sm-6 col-xs-12">
-			<div class="info-box">
-				<span class="info-box-icon bg-success"><ion-icon name="arrow-undo-outline"></ion-icon></span>
+	<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-success"><ion-icon name="arrow-undo-outline"></ion-icon></span>
 
-				<div class="info-box-content">
-					<span class="info-box-text text-bold">Total de pacientes asigandos</span>
 
-						<?php if(is_array($currentAsign) && $currentAsign != NULL):?>
-							<span class="info-box-number"><?php echo(count($currentAsign));?></span>
-						<?php else:?>
-							<span class="info-box-number"><?php echo(isset($currentAsign) ? $currentAsign: "Sin datos");?></span>
+			<div class="info-box-content">
+				<span class="info-box-text text-bold">Total de pacientes asigandos</span>
 
-						<?php endif;?>
-				</div>
-				<!-- /.info-box-content -->
+				<?php if(is_array($currentAsign) && $currentAsign != NULL):?>
+					<span class="info-box-number"><?php echo(count($currentAsign));?></span>
+				<?php else:?>
+					<span class="info-box-number"><?php echo(isset($currentAsign) ? $currentAsign: "Sin datos");?></span>
+
+				<?php endif;?>
+
 			</div>
-			<!-- /.info-box -->
+			<!-- /.info-box-content -->
 		</div>
+		<!-- /.info-box -->
+	</div>
 
 
 
-		<div class="col-md-4 col-sm-6 col-xs-12">
-			<div class="info-box">
-				<span class="info-box-icon bg-blue"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></span>
+	<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-blue"><ion-icon name="chatbubble-ellipses-outline"></ion-icon></span>
 
-				<div class="info-box-content">
-					<span class="info-box-text text-bold">Total de sesiones generadas</span>
-					<span class="info-box-number"><?php echo(isset($currentAppoint) ? $currentAppoint: "Sin datos");?></span>
-				</div>
-				<!-- /.info-box-content -->
+			<div class="info-box-content">
+				<span class="info-box-text text-bold">Total de sesiones generadas</span>
+				<span class="info-box-number"><?php echo(isset($currentAppoint) ? $currentAppoint: "Sin datos");?></span>
 			</div>
-			<!-- /.info-box -->
+			<!-- /.info-box-content -->
 		</div>
+		<!-- /.info-box -->
+	</div>
 
 	</div>
 
@@ -93,7 +95,7 @@ $btn_save_sessión = array(
 					</div>
 					<div class="card-body">
 
-
+						<!-- Tabla para administradores-->
 						<?php if ($this->session->userdata('usuario')['nivel'] == 1 && $this->session->userdata('usuario')['activo'] == 1): ?>
 							<div class="container">
 								<div class="row">
@@ -104,11 +106,11 @@ $btn_save_sessión = array(
 												   width="100%">
 												<thead>
 												<tr>
+													<th>Folio</th>
 													<th>Nombre</th>
 													<th>Apellido Paterno</th>
 													<th>Apellido Materno</th>
-													<th>Fecha de Nacimiento</th>
-													<th>&nbsp</th>
+													<th>&nbsp;</th>
 
 
 												</tr>
@@ -127,11 +129,12 @@ $btn_save_sessión = array(
 
 														?>
 
-														<?php echo "<tr><td>" . $key_paciente['nombre'] . "</td>" ?>
+													<?php  #var_dump($key_paciente);?>
+														<?php echo "<tr><td>" .$key_paciente['year'].'-'.$key_paciente['semester'].'-'.$key_paciente['folio'] ."</td>"; ?>
+														<?php echo "<td>" . $key_paciente['nombre'] . "</td>" ?>
 														<?php echo "<td>" . $key_paciente['paterno'] . "</td>" ?>
 														<?php echo "<td>" . $key_paciente['materno'] . "</td>" ?>
 
-														<?php echo "<td>" . $key_paciente['fecha_nacimiento'] . "</td>" ?>
 
 														<?php echo "<td>" . $label_asign . "</td></tr>" ?>
 
@@ -149,8 +152,10 @@ $btn_save_sessión = array(
 							</div>
 
 						<?php endif; ?>
+						<!-- End -->
 
 
+						<!-- Tabala para Root -->
 						<?php if ($this->session->userdata('usuario')['nivel'] == 3): ?>
 
 							<div class="container">
@@ -315,7 +320,7 @@ $btn_save_sessión = array(
 							</div>
 
 						<?php endif; ?>
-
+						<!-- End -->
 
 					</div>
 					<!-- /.card-body -->

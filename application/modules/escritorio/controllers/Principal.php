@@ -14,7 +14,7 @@ class Principal	extends MX_Controller
 		$models = array('Principal_model', 'Asignacion/asignacion_model','Sesiones/Session_model');
 		$this->load->models($models);
 
-	 Modules::run('login/Validaciones/exist_user_sess');
+	  Modules::run('login/Validaciones/exist_user_sess');
 
 		/*
 		if (!$this->session->userdata('sesion')){
@@ -99,6 +99,7 @@ class Principal	extends MX_Controller
 		}
 	}
 
+
 	public function current_asign()
 	{
 		$i = 1;
@@ -121,8 +122,12 @@ class Principal	extends MX_Controller
 					'status'				=>	$asignados->status,
 					'id_psicologo' 			=> $asignados->id_psicologo,
 					'id_paciente' 			=> $asignados->id_paciente,
+					'year'					=>	$asignados->anio,
+					'semester'				=>	$asignados->tipo_semestre,
+					'folio'					=>	$asignados->num_folio,
 				];
 
+			#	var_dump($asignados);
 			}
 		}
 		if (isset($all_asing))
@@ -176,9 +181,6 @@ class Principal	extends MX_Controller
 					'asignados'		=>	(isset($asignados) ? $asignados: "Sin datos"),
 					'currentAsign'	=>	(isset($currentAsign) ? $currentAsign: "Sin datos"),
 					'currentAppoint'	=>	(isset($currentAppoint) ? $currentAppoint: "Sin datos"),
-
-
-
 
 				);
 

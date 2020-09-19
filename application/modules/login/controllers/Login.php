@@ -48,7 +48,7 @@ class Login extends MX_Controller
 			);
 			#	var_dump($data);
 			$result	=	$log->validate_user($data);
-				 #var_dump($result->password);
+				# var_dump($result->password);
 
 
 
