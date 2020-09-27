@@ -194,7 +194,6 @@
 
 
 
-
 	.personales > input[type=text]
 	{
 		width: 120%;
@@ -677,6 +676,7 @@
 
 	/*
 		Checkbox compromiso de asistencia
+
 	 */
 
 
@@ -707,7 +707,9 @@
 
 	}
 
-
+#col-12-1{
+	display: flex;
+}
 
 
 }
