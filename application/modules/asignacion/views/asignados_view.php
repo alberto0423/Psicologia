@@ -48,7 +48,7 @@
 								<div class="col-4">
 									<label>Nombre del paciente: </label>
 
-									<div class="col-12">
+									<div class="col-12" id="col-12-1">
 
 										<input type="text"  name="userName" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->nombre ?>">
 									</div>
@@ -60,7 +60,7 @@
 								<div class="col-4">
 									<label>Paterno: </label>
 
-									<div class="">
+									<div class="col-12" id="col-12-1">
 
 										<input type="text" name="paternUser" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->paterno ?>">
 									</div>
@@ -71,7 +71,7 @@
 								<div class="col-4">
 									<label>Materno: </label>
 
-									<div class="">
+									<div id="col-12-1" >
 										<input type="text" name="maternUser" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->materno ?>">
 									</div>
 
@@ -82,7 +82,7 @@
 
 								<div class="col-4">
 									<label>Fecha de nacimiento: </label>
-									<div class="">
+									<div class="" id="col-12-1">
 
 										<input type="text" name="burnDate" class="form-control col-sm-6" value="<?php echo date("Y-m-j", strtotime($asignacion[$i]->fecha_nacimiento)) ?>">
 									</div>
@@ -90,7 +90,7 @@
 								</div>
 								<div class="col-4">
 									<label>Edad: </label>
-									<div class="">
+									<div class="" id="col-12-1">
 										<p id="age">
 											<?php
 											echo age_calc($asignacion[$i]->fecha_nacimiento)
@@ -112,14 +112,14 @@
 
 								<div class="col-4">
 									<label>Correo electronico: </label>
-									<div class="">
+									<div class="" id="col-12-1">
 										<input type="email" name="userEmail" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->correo_electronico ?>">
 									</div>
 								</div>
 
 								<div class="col-4">
 									<label>Telefono fijo: </label>
-									<div>
+									<div id="col-12-1">
 
 										<input type="text" name="userPhone" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->telefono ?>">
 									</div>
@@ -128,7 +128,7 @@
 
 								<div class="col-4">
 									<label>Celular: </label>
-									<div class="">
+									<div class="" id="col-12-1">
 
 										<input type="text" name="userCell" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->celular ?>">
 									</div>
@@ -136,9 +136,9 @@
 								</div>
 
 
-								<div class="col-4">
+								<div class="col-7" >
 									<label>Dirección: </label>
-									<div class="">
+									<div class="" id="col-12-1">
 
 										<input type="text" name="burnDate" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->direccion ?>">
 									</div>
@@ -160,7 +160,7 @@
 
 								<div class="col-4">
 									<label>No. cuenta: </label>
-									<div class="">
+									<div class="" id="col-12-1">
 
 										<input type="text" name="userCount" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->numero_cuenta ?>">
 									</div>
@@ -169,26 +169,33 @@
 
 								<div class="col-4">
 									<label>Carrera: </label>
+									<div id="col-12-1">
 									<input type="text" name="userCareer" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->carrera ?>">
+								</div>
 								</div>
 
 
 								<div class="col-4">
 									<label>Semestre: </label>
+									<div id="col-12-1">
 									<input type="text" name="userSemester" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->semestre ?>">
+								</div>
 								</div>
 
 
 								<div class="col-4">
 									<label>Turno: </label>
-
+               <div id="col-12-1">
 									<input type="text" name="userTurn" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->turno ?>">
+								</div>
 								</div>
 
 
 								<div class="col-4">
 									<label>Promedio: </label>
+									<div id="col-12-1">
 									<input type="text" name="userNote" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->promedio ?>">
+								</div>
 								</div>
 
 							</div>
@@ -207,23 +214,27 @@
 
 							<div class="row">
 
-								<div class="col-4">
+								<div class="col-7">
 									<label>Motivo de consulta: </label>
-
+                   <div id="col-12-1">
 									<input type="text" name="userMotive" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->motivo_servicio_psicologico ?>">
+								</div>
 								</div>
 
 
 								<div class="col-4">
 									<label>Antiguedad: </label>
-
+                    <div id="col-12-1">
 									<input type="text" name="userAntiq" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->antiguedad_problema ?>">
+								</div>
 								</div>
 
 
 								<div class="col-4">
 									<label>Horario de atención: </label>
+									<div id="col-12-1">
 									<input type="text" name="atentionDate" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->horario_atencion ?>">
+								</div>
 								</div>
 
 								<div class="col-4">
@@ -241,15 +252,17 @@
 
 								<div class="col-4">
 									<label>Rendimiento: </label>
-
+                 <div id="col-12-1">
 									<input type="text" name="performance" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->problematica_rendimiento ?>">
+								</div>
 								</div>
 
 
-								<div class="col-4">
+								<div class="col-7">
 									<label>Afectación: </label>
-
+                  <div id="col-12-1">
 									<input type="text" name="afect" class="form-control col-sm-6" value="<?php echo $asignacion[$i]->afectacion_problema ?>">
+								</div>
 								</div>
 
 							</div>
