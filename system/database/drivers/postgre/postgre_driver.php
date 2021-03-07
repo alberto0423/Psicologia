@@ -374,7 +374,7 @@ class CI_DB_postgre_driver extends CI_DB {
 			}
 			else
 			{
-				// seq_name passed in datatables parameter
+				// seq_name passed in table parameter
 				$seq = $table;
 			}
 
@@ -393,9 +393,9 @@ class CI_DB_postgre_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show datatables query
+	 * Show table query
 	 *
-	 * Generates a platform-specific query string so that the datatables names can be fetched
+	 * Generates a platform-specific query string so that the table names can be fetched
 	 *
 	 * @param	bool	$prefix_limit
 	 * @return	string

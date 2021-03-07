@@ -98,16 +98,16 @@ class CI_DB_pdo_sqlite_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show datatables query
+	 * Show table query
 	 *
-	 * Generates a platform-specific query string so that the datatables names can be fetched
+	 * Generates a platform-specific query string so that the table names can be fetched
 	 *
 	 * @param	bool	$prefix_limit
 	 * @return	string
 	 */
 	protected function _list_tables($prefix_limit = FALSE)
 	{
-		$sql = 'SELECT "NAME" FROM "SQLITE_MASTER" WHERE "TYPE" = \'datatables\'';
+		$sql = 'SELECT "NAME" FROM "SQLITE_MASTER" WHERE "TYPE" = \'table\'';
 
 		if ($prefix_limit === TRUE && $this->dbprefix !== '')
 		{
@@ -200,7 +200,7 @@ class CI_DB_pdo_sqlite_driver extends CI_DB_pdo_driver {
 	 * Generates a platform-specific truncate string from the supplied data
 	 *
 	 * If the database does not support the TRUNCATE statement,
-	 * then this method maps to 'DELETE FROM datatables'
+	 * then this method maps to 'DELETE FROM table'
 	 *
 	 * @param	string	$table
 	 * @return	string

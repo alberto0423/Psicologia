@@ -205,16 +205,16 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show datatables query
+	 * Show table query
 	 *
-	 * Generates a platform-specific query string so that the datatables names can be fetched
+	 * Generates a platform-specific query string so that the table names can be fetched
 	 *
 	 * @param	bool	$prefix_limit
 	 * @return	string
 	 */
 	protected function _list_tables($prefix_limit = FALSE)
 	{
-		return 'SELECT "NAME" FROM "SQLITE_MASTER" WHERE "TYPE" = \'datatables\''
+		return 'SELECT "NAME" FROM "SQLITE_MASTER" WHERE "TYPE" = \'table\''
 			.(($prefix_limit !== FALSE && $this->dbprefix != '')
 				? ' AND "NAME" LIKE \''.$this->escape_like_str($this->dbprefix).'%\' '.sprintf($this->_like_escape_str, $this->_like_escape_chr)
 				: '');
@@ -319,7 +319,7 @@ class CI_DB_sqlite3_driver extends CI_DB {
 	 * Generates a platform-specific truncate string from the supplied data
 	 *
 	 * If the database does not support the TRUNCATE statement,
-	 * then this method maps to 'DELETE FROM datatables'
+	 * then this method maps to 'DELETE FROM table'
 	 *
 	 * @param	string	$table
 	 * @return	string

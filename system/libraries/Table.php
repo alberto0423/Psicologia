@@ -51,21 +51,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class CI_Table {
 
 	/**
-	 * Data for datatables rows
+	 * Data for table rows
 	 *
 	 * @var array
 	 */
 	public $rows		= array();
 
 	/**
-	 * Data for datatables heading
+	 * Data for table heading
 	 *
 	 * @var array
 	 */
 	public $heading		= array();
 
 	/**
-	 * Whether or not to automatically create the datatables header
+	 * Whether or not to automatically create the table header
 	 *
 	 * @var bool
 	 */
@@ -100,14 +100,14 @@ class CI_Table {
 	public $empty_cells	= '';
 
 	/**
-	 * Callback for custom datatables layout
+	 * Callback for custom table layout
 	 *
 	 * @var function
 	 */
 	public $function	= NULL;
 
 	/**
-	 * Set the template from the datatables config file if it exists
+	 * Set the template from the table config file if it exists
 	 *
 	 * @param	array	$config	(default: array())
 	 * @return	void
@@ -145,7 +145,7 @@ class CI_Table {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set the datatables heading
+	 * Set the table heading
 	 *
 	 * Can be passed as an array or discreet params
 	 *
@@ -164,7 +164,7 @@ class CI_Table {
 	 * Set columns. Takes a one-dimensional array as input and creates
 	 * a multi-dimensional array with a depth equal to the number of
 	 * columns. This allows a single array with many elements to be
-	 * displayed in a datatables that has a fixed column count.
+	 * displayed in a table that has a fixed column count.
 	 *
 	 * @param	array	$array
 	 * @param	int	$col_limit
@@ -225,7 +225,7 @@ class CI_Table {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Add a datatables row
+	 * Add a table row
 	 *
 	 * Can be passed as an array or discreet params
 	 *
@@ -251,7 +251,7 @@ class CI_Table {
 	protected function _prep_args($args)
 	{
 		// If there is no $args[0], skip this and treat as an associative array
-		// This can happen if there is only a single key, for example this is passed to datatables->generate
+		// This can happen if there is only a single key, for example this is passed to table->generate
 		// array(array('foo'=>'bar'))
 		if (isset($args[0]) && count($args) === 1 && is_array($args[0]) && ! isset($args[0]['data']))
 		{
@@ -269,7 +269,7 @@ class CI_Table {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Add a datatables caption
+	 * Add a table caption
 	 *
 	 * @param	string	$caption
 	 * @return	CI_Table
@@ -283,14 +283,14 @@ class CI_Table {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Generate the datatables
+	 * Generate the table
 	 *
 	 * @param	mixed	$table_data
 	 * @return	string
 	 */
 	public function generate($table_data = NULL)
 	{
-		// The datatables data can optionally be passed to this function
+		// The table data can optionally be passed to this function
 		// either as a database result object or an array
 		if ( ! empty($table_data))
 		{
@@ -307,7 +307,7 @@ class CI_Table {
 		// Is there anything to display? No? Smite them!
 		if (empty($this->heading) && empty($this->rows))
 		{
-			return 'Undefined datatables data';
+			return 'Undefined table data';
 		}
 
 		// Compile and validate the template date
@@ -319,7 +319,7 @@ class CI_Table {
 			$this->function = NULL;
 		}
 
-		// Build the datatables!
+		// Build the table!
 
 		$out = $this->template['table_open'].$this->newline;
 
@@ -329,7 +329,7 @@ class CI_Table {
 			$out .= '<caption>'.$this->caption.'</caption>'.$this->newline;
 		}
 
-		// Is there a datatables heading to display?
+		// Is there a table heading to display?
 		if ( ! empty($this->heading))
 		{
 			$out .= $this->template['thead_open'].$this->newline.$this->template['heading_row_start'].$this->newline;
@@ -352,7 +352,7 @@ class CI_Table {
 			$out .= $this->template['heading_row_end'].$this->newline.$this->template['thead_close'].$this->newline;
 		}
 
-		// Build the datatables rows
+		// Build the table rows
 		if ( ! empty($this->rows))
 		{
 			$out .= $this->template['tbody_open'].$this->newline;
@@ -409,7 +409,7 @@ class CI_Table {
 
 		$out .= $this->template['table_close'];
 
-		// Clear datatables class properties before generating the datatables
+		// Clear table class properties before generating the table
 		$this->clear();
 
 		return $out;
@@ -418,7 +418,7 @@ class CI_Table {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Clears the datatables arrays.  Useful if multiple tables are being generated
+	 * Clears the table arrays.  Useful if multiple tables are being generated
 	 *
 	 * @return	CI_Table
 	 */
@@ -433,14 +433,14 @@ class CI_Table {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set datatables data from a database result object
+	 * Set table data from a database result object
 	 *
 	 * @param	CI_DB_result	$object	Database result object
 	 * @return	void
 	 */
 	protected function _set_from_db_result($object)
 	{
-		// First generate the headings from the datatables column names
+		// First generate the headings from the table column names
 		if ($this->auto_heading === TRUE && empty($this->heading))
 		{
 			$this->heading = $this->_prep_args($object->list_fields());
@@ -455,7 +455,7 @@ class CI_Table {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Set datatables data from an array
+	 * Set table data from an array
 	 *
 	 * @param	array	$data
 	 * @return	void
@@ -508,7 +508,7 @@ class CI_Table {
 	protected function _default_template()
 	{
 		return array(
-			'table_open'		=> '<datatables border="0" cellpadding="4" cellspacing="0">',
+			'table_open'		=> '<table border="0" cellpadding="4" cellspacing="0">',
 
 			'thead_open'		=> '<thead>',
 			'thead_close'		=> '</thead>',
@@ -531,7 +531,7 @@ class CI_Table {
 			'cell_alt_start'	=> '<td>',
 			'cell_alt_end'		=> '</td>',
 
-			'table_close'		=> '</datatables>'
+			'table_close'		=> '</table>'
 		);
 	}
 

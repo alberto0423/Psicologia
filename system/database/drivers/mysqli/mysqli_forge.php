@@ -58,7 +58,7 @@ class CI_DB_mysqli_forge extends CI_DB_forge {
 	/**
 	 * CREATE TABLE keys flag
 	 *
-	 * Whether datatables keys are created from within the
+	 * Whether table keys are created from within the
 	 * CREATE TABLE statement.
 	 *
 	 * @var	bool
@@ -97,7 +97,7 @@ class CI_DB_mysqli_forge extends CI_DB_forge {
 	/**
 	 * CREATE TABLE attributes
 	 *
-	 * @param	array	$attributes	Associative array of datatables attributes
+	 * @param	array	$attributes	Associative array of table attributes
 	 * @return	string
 	 */
 	protected function _create_table_attr($attributes)

@@ -287,9 +287,9 @@ class CI_DB_cubrid_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * List datatables query
+	 * List table query
 	 *
-	 * Generates a platform-specific query string so that the datatables names can be fetched
+	 * Generates a platform-specific query string so that the table names can be fetched
 	 *
 	 * @param	bool	$prefix_limit
 	 * @return	string

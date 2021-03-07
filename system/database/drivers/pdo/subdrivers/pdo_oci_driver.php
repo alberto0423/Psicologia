@@ -153,9 +153,9 @@ class CI_DB_pdo_oci_driver extends CI_DB_pdo_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Show datatables query
+	 * Show table query
 	 *
-	 * Generates a platform-specific query string so that the datatables names can be fetched
+	 * Generates a platform-specific query string so that the table names can be fetched
 	 *
 	 * @param	bool	$prefix_limit
 	 * @return	string

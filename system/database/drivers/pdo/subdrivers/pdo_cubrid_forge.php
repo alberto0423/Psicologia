@@ -63,7 +63,7 @@ class CI_DB_pdo_cubrid_forge extends CI_DB_pdo_forge {
 	/**
 	 * CREATE TABLE keys flag
 	 *
-	 * Whether datatables keys are created from within the
+	 * Whether table keys are created from within the
 	 * CREATE TABLE statement.
 	 *
 	 * @var	bool

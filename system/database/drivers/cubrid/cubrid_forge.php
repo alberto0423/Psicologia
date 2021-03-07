@@ -56,7 +56,7 @@ class CI_DB_cubrid_forge extends CI_DB_forge {
 	/**
 	 * CREATE TABLE keys flag
 	 *
-	 * Whether datatables keys are created from within the
+	 * Whether table keys are created from within the
 	 * CREATE TABLE statement.
 	 *
 	 * @var	bool

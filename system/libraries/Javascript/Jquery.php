@@ -77,14 +77,14 @@ class CI_Jquery extends CI_Javascript {
 	public $jquery_corner_active = FALSE;
 
 	/**
-	 * JQuery datatables sorter active flag
+	 * JQuery table sorter active flag
 	 *
 	 * @var	bool
 	 */
 	public $jquery_table_sorter_active = FALSE;
 
 	/**
-	 * JQuery datatables sorter pager active
+	 * JQuery table sorter pager active
 	 *
 	 * @var	bool
 	 */
@@ -770,13 +770,13 @@ class CI_Jquery extends CI_Javascript {
 	protected function _zebraTables($class = '', $odd = 'odd', $hover = '')
 	{
 		$class = ($class !== '') ? '.'.$class : '';
-		$zebra = "\t\$(\"datatables{$class} tbody tr:nth-child(even)\").addClass(\"{$odd}\");";
+		$zebra = "\t\$(\"table{$class} tbody tr:nth-child(even)\").addClass(\"{$odd}\");";
 
 		$this->jquery_code_for_compile[] = $zebra;
 
 		if ($hover !== '')
 		{
-			$hover = $this->hover("datatables{$class} tbody tr", "$(this).addClass('hover');", "$(this).removeClass('hover');");
+			$hover = $this->hover("table{$class} tbody tr", "$(this).addClass('hover');", "$(this).removeClass('hover');");
 		}
 
 		return $zebra;
@@ -906,7 +906,7 @@ class CI_Jquery extends CI_Javascript {
 	/**
 	 * Table Sorter Plugin
 	 *
-	 * @param	string	datatables name
+	 * @param	string	table name
 	 * @param	string	plugin location
 	 * @return	string
 	 */

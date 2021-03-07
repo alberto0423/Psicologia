@@ -53,14 +53,14 @@ class CI_Typography {
 	 *
 	 * @var string
 	 */
-	public $block_elements = 'address|blockquote|div|dl|fieldset|form|h\d|hr|noscript|object|ol|p|pre|script|datatables|ul';
+	public $block_elements = 'address|blockquote|div|dl|fieldset|form|h\d|hr|noscript|object|ol|p|pre|script|table|ul';
 
 	/**
 	 * Elements that should not have <p> and <br /> tags within them.
 	 *
 	 * @var string
 	 */
-	public $skip_elements	= 'p|pre|ol|ul|dl|object|datatables|h\d';
+	public $skip_elements	= 'p|pre|ol|ul|dl|object|table|h\d';
 
 	/**
 	 * Tags we want the parser to completely ignore when splitting the string.

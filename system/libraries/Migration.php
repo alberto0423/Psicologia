@@ -80,7 +80,7 @@ class CI_Migration {
 	protected $_migration_version = 0;
 
 	/**
-	 * Database datatables with migration info
+	 * Database table with migration info
 	 *
 	 * @var string
 	 */
@@ -146,7 +146,7 @@ class CI_Migration {
 		// They'll probably be using dbforge
 		$this->load->dbforge();
 
-		// Make sure the migration datatables name was set.
+		// Make sure the migration table name was set.
 		if (empty($this->_migration_table))
 		{
 			show_error('Migrations configuration file (migration.php) must have "migration_table" set.');
@@ -163,7 +163,7 @@ class CI_Migration {
 			show_error('An invalid migration numbering type was specified: '.$this->_migration_type);
 		}
 
-		// If the migrations datatables is missing, make it
+		// If the migrations table is missing, make it
 		if ( ! $this->db->table_exists($this->_migration_table))
 		{
 			$this->dbforge->add_field(array(

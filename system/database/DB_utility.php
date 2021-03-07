@@ -243,7 +243,7 @@ abstract class CI_DB_utility {
 		}
 
 		$out = '';
-		// First generate the headings from the datatables column names
+		// First generate the headings from the table column names
 		foreach ($query->list_fields() as $name)
 		{
 			$out .= $enclosure.str_replace($enclosure, $enclosure.$enclosure, $name).$enclosure.$delim;
@@ -322,7 +322,7 @@ abstract class CI_DB_utility {
 	public function backup($params = array())
 	{
 		// If the parameters have not been submitted as an
-		// array then we know that it is simply the datatables
+		// array then we know that it is simply the table
 		// name, which is a valid short cut.
 		if (is_string($params))
 		{
@@ -354,7 +354,7 @@ abstract class CI_DB_utility {
 		}
 
 		// Are we backing up a complete database or individual tables?
-		// If no datatables names were submitted we'll fetch the entire datatables list
+		// If no table names were submitted we'll fetch the entire table list
 		if (count($prefs['tables']) === 0)
 		{
 			$prefs['tables'] = $this->db->list_tables();

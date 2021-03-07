@@ -166,7 +166,7 @@ class CI_Profiler {
 			}
 		}
 
-		// Build a datatables containing the profile data.
+		// Build a table containing the profile data.
 		// Note: At some point we should turn this into a template that can
 		// be modified. We also might want to make this data available to be logged
 
@@ -174,7 +174,7 @@ class CI_Profiler {
 			.'<fieldset id="ci_profiler_benchmarks" style="border:1px solid #900;padding:6px 10px 10px 10px;margin:20px 0 20px 0;background-color:#eee;">'
 			."\n"
 			.'<legend style="color:#900;">&nbsp;&nbsp;'.$this->CI->lang->line('profiler_benchmarks')."&nbsp;&nbsp;</legend>"
-			."\n\n\n<datatables style=\"width:100%;\">\n";
+			."\n\n\n<table style=\"width:100%;\">\n";
 
 		foreach ($profile as $key => $val)
 		{
@@ -184,7 +184,7 @@ class CI_Profiler {
 					.$val."</td></tr>\n";
 		}
 
-		return $output."</datatables>\n</fieldset>";
+		return $output."</table>\n</fieldset>";
 	}
 
 	// --------------------------------------------------------------------
@@ -226,10 +226,10 @@ class CI_Profiler {
 				.'<fieldset id="ci_profiler_queries" style="border:1px solid #0000FF;padding:6px 10px 10px 10px;margin:20px 0 20px 0;background-color:#eee;">'
 				."\n"
 				.'<legend style="color:#0000FF;">&nbsp;&nbsp;'.$this->CI->lang->line('profiler_queries').'&nbsp;&nbsp;</legend>'
-				."\n\n\n<datatables style=\"border:none; width:100%;\">\n"
+				."\n\n\n<table style=\"border:none; width:100%;\">\n"
 				.'<tr><td style="width:100%;color:#0000FF;font-weight:normal;background-color:#eee;padding:5px;">'
 				.$this->CI->lang->line('profiler_no_db')
-				."</td></tr>\n</datatables>\n</fieldset>";
+				."</td></tr>\n</table>\n</fieldset>";
 		}
 
 		// Load the text helper so we can highlight the SQL
@@ -258,7 +258,7 @@ class CI_Profiler {
 				.'<legend style="color:#0000FF;">&nbsp;&nbsp;'.$this->CI->lang->line('profiler_database')
 				.':&nbsp; '.$db->database.' ('.$name.')&nbsp;&nbsp;&nbsp;'.$this->CI->lang->line('profiler_queries')
 				.': '.count($db->queries).' ('.$total_time.')&nbsp;&nbsp;'.$show_hide_js."</legend>\n\n\n"
-				.'<datatables style="width:100%;'.$hide_queries.'" id="ci_profiler_queries_db_'.$count."\">\n";
+				.'<table style="width:100%;'.$hide_queries.'" id="ci_profiler_queries_db_'.$count."\">\n";
 
 			if (count($db->queries) === 0)
 			{
@@ -283,7 +283,7 @@ class CI_Profiler {
 				}
 			}
 
-			$output .= "</datatables>\n</fieldset>";
+			$output .= "</table>\n</fieldset>";
 			$count++;
 		}
 
@@ -310,7 +310,7 @@ class CI_Profiler {
 		}
 		else
 		{
-			$output .= "\n\n<datatables style=\"width:100%;border:none;\">\n";
+			$output .= "\n\n<table style=\"width:100%;border:none;\">\n";
 
 			foreach ($_GET as $key => $val)
 			{
@@ -324,7 +324,7 @@ class CI_Profiler {
 					.$val."</td></tr>\n";
 			}
 
-			$output .= "</datatables>\n";
+			$output .= "</table>\n";
 		}
 
 		return $output.'</fieldset>';
@@ -350,7 +350,7 @@ class CI_Profiler {
 		}
 		else
 		{
-			$output .= "\n\n<datatables style=\"width:100%;\">\n";
+			$output .= "\n\n<table style=\"width:100%;\">\n";
 
 			foreach ($_POST as $key => $val)
 			{
@@ -376,7 +376,7 @@ class CI_Profiler {
 					.$val."</td></tr>\n";
 			}
 
-			$output .= "</datatables>\n";
+			$output .= "</table>\n";
 		}
 
 		return $output.'</fieldset>';
@@ -453,7 +453,7 @@ class CI_Profiler {
 			."\n"
 			.'<legend style="color:#000;">&nbsp;&nbsp;'.$this->CI->lang->line('profiler_headers')
 			.'&nbsp;&nbsp;(<span style="cursor: pointer;" onclick="var s=document.getElementById(\'ci_profiler_httpheaders_table\').style;s.display=s.display==\'none\'?\'\':\'none\';this.innerHTML=this.innerHTML==\''.$this->CI->lang->line('profiler_section_show').'\'?\''.$this->CI->lang->line('profiler_section_hide').'\':\''.$this->CI->lang->line('profiler_section_show').'\';">'.$this->CI->lang->line('profiler_section_show')."</span>)</legend>\n\n\n"
-			.'<datatables style="width:100%;display:none;" id="ci_profiler_httpheaders_table">'."\n";
+			.'<table style="width:100%;display:none;" id="ci_profiler_httpheaders_table">'."\n";
 
 		foreach (array('HTTP_ACCEPT', 'HTTP_USER_AGENT', 'HTTP_CONNECTION', 'SERVER_PORT', 'SERVER_NAME', 'REMOTE_ADDR', 'SERVER_SOFTWARE', 'HTTP_ACCEPT_LANGUAGE', 'SCRIPT_NAME', 'REQUEST_METHOD',' HTTP_HOST', 'REMOTE_HOST', 'CONTENT_TYPE', 'SERVER_PROTOCOL', 'QUERY_STRING', 'HTTP_ACCEPT_ENCODING', 'HTTP_X_FORWARDED_FOR', 'HTTP_DNT') as $header)
 		{
@@ -462,7 +462,7 @@ class CI_Profiler {
 				.$header.'&nbsp;&nbsp;</td><td style="width:50%;padding:5px;color:#000;background-color:#ddd;">'.$val."</td></tr>\n";
 		}
 
-		return $output."</datatables>\n</fieldset>";
+		return $output."</table>\n</fieldset>";
 	}
 
 	// --------------------------------------------------------------------
@@ -480,7 +480,7 @@ class CI_Profiler {
 			.'<fieldset id="ci_profiler_config" style="border:1px solid #000;padding:6px 10px 10px 10px;margin:20px 0 20px 0;background-color:#eee;">'
 			."\n"
 			.'<legend style="color:#000;">&nbsp;&nbsp;'.$this->CI->lang->line('profiler_config').'&nbsp;&nbsp;(<span style="cursor: pointer;" onclick="var s=document.getElementById(\'ci_profiler_config_table\').style;s.display=s.display==\'none\'?\'\':\'none\';this.innerHTML=this.innerHTML==\''.$this->CI->lang->line('profiler_section_show').'\'?\''.$this->CI->lang->line('profiler_section_hide').'\':\''.$this->CI->lang->line('profiler_section_show').'\';">'.$this->CI->lang->line('profiler_section_show')."</span>)</legend>\n\n\n"
-			.'<datatables style="width:100%;display:none;" id="ci_profiler_config_table">'."\n";
+			.'<table style="width:100%;display:none;" id="ci_profiler_config_table">'."\n";
 
 		foreach ($this->CI->config->config as $config => $val)
 		{
@@ -499,7 +499,7 @@ class CI_Profiler {
 				.$config.'&nbsp;&nbsp;</td><td style="padding:5px;color:#000;background-color:#ddd;">'.$pre.htmlspecialchars($val, ENT_QUOTES, config_item('charset')).$pre_close."</td></tr>\n";
 		}
 
-		return $output."</datatables>\n</fieldset>";
+		return $output."</table>\n</fieldset>";
 	}
 
 	// --------------------------------------------------------------------
@@ -518,7 +518,7 @@ class CI_Profiler {
 
 		$output = '<fieldset id="ci_profiler_csession" style="border:1px solid #000;padding:6px 10px 10px 10px;margin:20px 0 20px 0;background-color:#eee;">'
 			.'<legend style="color:#000;">&nbsp;&nbsp;'.$this->CI->lang->line('profiler_session_data').'&nbsp;&nbsp;(<span style="cursor: pointer;" onclick="var s=document.getElementById(\'ci_profiler_session_data\').style;s.display=s.display==\'none\'?\'\':\'none\';this.innerHTML=this.innerHTML==\''.$this->CI->lang->line('profiler_section_show').'\'?\''.$this->CI->lang->line('profiler_section_hide').'\':\''.$this->CI->lang->line('profiler_section_show').'\';">'.$this->CI->lang->line('profiler_section_show').'</span>)</legend>'
-			.'<datatables style="width:100%;display:none;" id="ci_profiler_session_data">';
+			.'<table style="width:100%;display:none;" id="ci_profiler_session_data">';
 
 		foreach ($this->CI->session->userdata() as $key => $val)
 		{
@@ -537,7 +537,7 @@ class CI_Profiler {
 				.$key.'&nbsp;&nbsp;</td><td style="padding:5px;color:#000;background-color:#ddd;">'.$pre.htmlspecialchars($val, ENT_QUOTES, config_item('charset')).$pre_close."</td></tr>\n";
 		}
 
-		return $output."</datatables>\n</fieldset>";
+		return $output."</table>\n</fieldset>";
 	}
 
 	// --------------------------------------------------------------------

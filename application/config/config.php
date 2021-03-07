@@ -36,6 +36,7 @@ $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER
 | variable so that it is blank.
 |
 */
+//$config['index_page'] = 'index.php';
 $config['index_page'] = '';
 
 /*
@@ -224,7 +225,7 @@ $config['allow_get_array'] = TRUE;
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 1;
+$config['log_threshold'] = 0;
 
 /*
 |--------------------------------------------------------------------------
@@ -352,7 +353,7 @@ $config['encryption_key'] = '';
 |	For the 'files' driver, it's a path to a writable directory.
 |	WARNING: Only absolute paths are supported!
 |
-|	For the 'database' driver, it's a datatables name.
+|	For the 'database' driver, it's a table name.
 |	Please read up the manual for the format with other session drivers.
 |
 |	IMPORTANT: You are REQUIRED to set a valid save path!
@@ -362,7 +363,7 @@ $config['encryption_key'] = '';
 |	Whether to match the user's IP address when reading the session data.
 |
 |	WARNING: If you're using the database driver, don't forget to update
-|	         your session datatables's PRIMARY KEY when changing this setting.
+|	         your session table's PRIMARY KEY when changing this setting.
 |
 | 'sess_time_to_update'
 |
@@ -522,10 +523,3 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
-
-// Agregado de acuerdo a: http://gulangguling.com/2012/09/13/setting-up-hmvc-in-codeigniter-2-1-2/
-$config['modules_locations'] = array(APPPATH.'modules/' => '../modules/',);
-
-
-
-

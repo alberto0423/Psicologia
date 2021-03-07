@@ -427,7 +427,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Determines the alias name based on the datatables
+	 * Determines the alias name based on the table
 	 *
 	 * @param	string	$item
 	 * @return	string
@@ -494,7 +494,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 				$val = trim($val);
 
 				// Extract any aliases that might exist. We use this information
-				// in the protect_identifiers to know whether to add a datatables prefix
+				// in the protect_identifiers to know whether to add a table prefix
 				$this->_track_aliases($val);
 
 				$this->qb_from[] = $val = $this->protect_identifiers($val, TRUE, NULL, FALSE);
@@ -540,7 +540,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 		}
 
 		// Extract any aliases that might exist. We use this information
-		// in the protect_identifiers to know whether to add a datatables prefix
+		// in the protect_identifiers to know whether to add a table prefix
 		$this->_track_aliases($table);
 
 		is_bool($escape) OR $escape = $this->_protect_identifiers;
@@ -587,7 +587,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			}
 		}
 
-		// Do we want to escape the datatables name?
+		// Do we want to escape the table name?
 		if ($escape === TRUE)
 		{
 			$table = $this->protect_identifiers($table, TRUE, NULL, FALSE);
@@ -1332,7 +1332,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Compiles a SELECT query string and returns the sql.
 	 *
-	 * @param	string	the datatables name to select from (optional)
+	 * @param	string	the table name to select from (optional)
 	 * @param	bool	TRUE: resets QB values; FALSE: leave QB values alone
 	 * @return	string
 	 */
@@ -1362,7 +1362,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 * Compiles the select statement based on the other functions called
 	 * and runs the query
 	 *
-	 * @param	string	the datatables
+	 * @param	string	the table
 	 * @param	string	the limit clause
 	 * @param	string	the offset clause
 	 * @return	CI_DB_result
@@ -1607,7 +1607,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Compiles an insert query and returns the sql
 	 *
-	 * @param	string	the datatables to insert into
+	 * @param	string	the table to insert into
 	 * @param	bool	TRUE: reset QB values; FALSE: leave QB values alone
 	 * @return	string
 	 */
@@ -1641,7 +1641,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Compiles an insert string and runs the query
 	 *
-	 * @param	string	the datatables to insert data into
+	 * @param	string	the table to insert data into
 	 * @param	array	an associative array of insert values
 	 * @param	bool	$escape	Whether to escape values and identifiers
 	 * @return	bool	TRUE on success, FALSE on failure
@@ -1676,10 +1676,10 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 * Validate Insert
 	 *
 	 * This method is used by both insert() and get_compiled_insert() to
-	 * validate that the there data is actually being set and that datatables
+	 * validate that the there data is actually being set and that table
 	 * has been chosen to be inserted into.
 	 *
-	 * @param	string	the datatables to insert data into
+	 * @param	string	the table to insert data into
 	 * @return	string
 	 */
 	protected function _validate_insert($table = '')
@@ -1708,7 +1708,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Compiles an replace into string and runs the query
 	 *
-	 * @param	string	the datatables to replace data into
+	 * @param	string	the table to replace data into
 	 * @param	array	an associative array of insert values
 	 * @return	bool	TRUE on success, FALSE on failure
 	 */
@@ -1747,7 +1747,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Generates a platform-specific replace string from the supplied data
 	 *
-	 * @param	string	the datatables name
+	 * @param	string	the table name
 	 * @param	array	the insert keys
 	 * @param	array	the insert values
 	 * @return	string
@@ -1781,7 +1781,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Compiles an update query and returns the sql
 	 *
-	 * @param	string	the datatables to update
+	 * @param	string	the table to update
 	 * @param	bool	TRUE: reset QB values; FALSE: leave QB values alone
 	 * @return	string
 	 */
@@ -1854,10 +1854,10 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 * Validate Update
 	 *
 	 * This method is used by both update() and get_compiled_update() to
-	 * validate that data is actually being set and that a datatables has been
+	 * validate that data is actually being set and that a table has been
 	 * chosen to be update.
 	 *
-	 * @param	string	the datatables to update data on
+	 * @param	string	the table to update data on
 	 * @return	bool
 	 */
 	protected function _validate_update($table)
@@ -1886,7 +1886,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Compiles an update string and runs the query
 	 *
-	 * @param	string	the datatables to retrieve the results from
+	 * @param	string	the table to retrieve the results from
 	 * @param	array	an associative array of update values
 	 * @param	string	the where key
 	 * @return	int	number of rows affected or FALSE on failure
@@ -2039,9 +2039,9 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	/**
 	 * Empty Table
 	 *
-	 * Compiles a delete string and runs "DELETE FROM datatables"
+	 * Compiles a delete string and runs "DELETE FROM table"
 	 *
-	 * @param	string	the datatables to empty
+	 * @param	string	the table to empty
 	 * @return	bool	TRUE on success, FALSE on failure
 	 */
 	public function empty_table($table = '')
@@ -2072,9 +2072,9 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Compiles a truncate string and runs the query
 	 * If the database does not support the truncate() command
-	 * This function maps to "DELETE FROM datatables"
+	 * This function maps to "DELETE FROM table"
 	 *
-	 * @param	string	the datatables to truncate
+	 * @param	string	the table to truncate
 	 * @return	bool	TRUE on success, FALSE on failure
 	 */
 	public function truncate($table = '')
@@ -2106,9 +2106,9 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 * Generates a platform-specific truncate string from the supplied data
 	 *
 	 * If the database does not support the truncate() command,
-	 * then this method maps to 'DELETE FROM datatables'
+	 * then this method maps to 'DELETE FROM table'
 	 *
-	 * @param	string	the datatables name
+	 * @param	string	the table name
 	 * @return	string
 	 */
 	protected function _truncate($table)
@@ -2123,7 +2123,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Compiles a delete query string and returns the sql
 	 *
-	 * @param	string	the datatables to delete from
+	 * @param	string	the table to delete from
 	 * @param	bool	TRUE: reset QB values; FALSE: leave QB values alone
 	 * @return	string
 	 */
@@ -2142,7 +2142,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Compiles a delete string and runs the query
 	 *
-	 * @param	mixed	the datatables(s) to delete from. String or array
+	 * @param	mixed	the table(s) to delete from. String or array
 	 * @param	mixed	the where clause
 	 * @param	mixed	the limit clause
 	 * @param	bool
@@ -2209,7 +2209,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Generates a platform-specific delete string from the supplied data
 	 *
-	 * @param	string	the datatables name
+	 * @param	string	the table name
 	 * @return	string
 	 */
 	protected function _delete($table)
@@ -2225,7 +2225,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Prepends a database prefix if one exists in configuration
 	 *
-	 * @param	string	the datatables
+	 * @param	string	the table
 	 * @return	string
 	 */
 	public function dbprefix($table = '')
@@ -2260,7 +2260,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 	 *
 	 * Used to track SQL statements written with aliased tables.
 	 *
-	 * @param	string	The datatables to inspect
+	 * @param	string	The table to inspect
 	 * @return	string
 	 */
 	protected function _track_aliases($table)
@@ -2281,7 +2281,7 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			return $this->_track_aliases(explode(',', $table));
 		}
 
-		// if a datatables alias is used we can recognize it by a space
+		// if a table alias is used we can recognize it by a space
 		if (strpos($table, ' ') !== FALSE)
 		{
 			// if the alias is written with the AS keyword, remove it

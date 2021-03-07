@@ -98,22 +98,22 @@ class CI_DB_mysqli_utility extends CI_DB_utility {
 
 		foreach ( (array) $tables as $table)
 		{
-			// Is the datatables in the "ignore" list?
+			// Is the table in the "ignore" list?
 			if (in_array($table, (array) $ignore, TRUE))
 			{
 				continue;
 			}
 
-			// Get the datatables schema
+			// Get the table schema
 			$query = $this->db->query('SHOW CREATE TABLE '.$this->db->escape_identifiers($this->db->database.'.'.$table));
 
-			// No result means the datatables name was invalid
+			// No result means the table name was invalid
 			if ($query === FALSE)
 			{
 				continue;
 			}
 
-			// Write out the datatables schema
+			// Write out the table schema
 			$output .= '#'.$newline.'# TABLE STRUCTURE FOR: '.$table.$newline.'#'.$newline.$newline;
 
 			if ($add_drop === TRUE)
@@ -137,7 +137,7 @@ class CI_DB_mysqli_utility extends CI_DB_utility {
 				continue;
 			}
 
-			// Grab all the data from the current datatables
+			// Grab all the data from the current table
 			$query = $this->db->query('SELECT * FROM '.$this->db->protect_identifiers($table));
 
 			if ($query->num_rows() === 0)

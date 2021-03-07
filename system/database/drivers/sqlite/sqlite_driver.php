@@ -193,16 +193,16 @@ class CI_DB_sqlite_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * List datatables query
+	 * List table query
 	 *
-	 * Generates a platform-specific query string so that the datatables names can be fetched
+	 * Generates a platform-specific query string so that the table names can be fetched
 	 *
 	 * @param	bool	$prefix_limit
 	 * @return	string
 	 */
 	protected function _list_tables($prefix_limit = FALSE)
 	{
-		$sql = "SELECT name FROM sqlite_master WHERE type='datatables'";
+		$sql = "SELECT name FROM sqlite_master WHERE type='table'";
 
 		if ($prefix_limit !== FALSE && $this->dbprefix != '')
 		{
@@ -305,7 +305,7 @@ class CI_DB_sqlite_driver extends CI_DB {
 	 * Generates a platform-specific truncate string from the supplied data
 	 *
 	 * If the database does not support the TRUNCATE statement,
-	 * then this function maps to 'DELETE FROM datatables'
+	 * then this function maps to 'DELETE FROM table'
 	 *
 	 * @param	string	$table
 	 * @return	string

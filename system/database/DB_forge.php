@@ -114,7 +114,7 @@ abstract class CI_DB_forge {
 	/**
 	 * CREATE TABLE keys flag
 	 *
-	 * Whether datatables keys are created from within the
+	 * Whether table keys are created from within the
 	 * CREATE TABLE statement.
 	 *
 	 * @var	bool
@@ -316,14 +316,14 @@ abstract class CI_DB_forge {
 	 *
 	 * @param	string	$table		Table name
 	 * @param	bool	$if_not_exists	Whether to add IF NOT EXISTS condition
-	 * @param	array	$attributes	Associative array of datatables attributes
+	 * @param	array	$attributes	Associative array of table attributes
 	 * @return	bool
 	 */
 	public function create_table($table, $if_not_exists = FALSE, array $attributes = array())
 	{
 		if ($table === '')
 		{
-			show_error('A datatables name is required for that operation.');
+			show_error('A table name is required for that operation.');
 		}
 		else
 		{
@@ -374,7 +374,7 @@ abstract class CI_DB_forge {
 	 *
 	 * @param	string	$table		Table name
 	 * @param	bool	$if_not_exists	Whether to add 'IF NOT EXISTS' condition
-	 * @param	array	$attributes	Associative array of datatables attributes
+	 * @param	array	$attributes	Associative array of table attributes
 	 * @return	mixed
 	 */
 	protected function _create_table($table, $if_not_exists, $attributes)
@@ -426,7 +426,7 @@ abstract class CI_DB_forge {
 	/**
 	 * CREATE TABLE attributes
 	 *
-	 * @param	array	$attributes	Associative array of datatables attributes
+	 * @param	array	$attributes	Associative array of table attributes
 	 * @return	string
 	 */
 	protected function _create_table_attr($attributes)
@@ -467,7 +467,7 @@ abstract class CI_DB_forge {
 
 		$query = $this->db->query($query);
 
-		// Update datatables list cache
+		// Update table list cache
 		if ($query && ! empty($this->db->data_cache['table_names']))
 		{
 			$key = array_search(strtolower($this->db->dbprefix.$table_name), array_map('strtolower', $this->db->data_cache['table_names']), TRUE);
@@ -489,7 +489,7 @@ abstract class CI_DB_forge {
 	 *
 	 * @param	string	$table		Table name
 	 * @param	bool	$if_exists	Whether to add an IF EXISTS condition
-	 * @return	mixed	(Returns a platform-specific DROP datatables string, or TRUE to indicate there's nothing to do)
+	 * @return	mixed	(Returns a platform-specific DROP table string, or TRUE to indicate there's nothing to do)
 	 */
 	protected function _drop_table($table, $if_exists)
 	{
@@ -518,15 +518,15 @@ abstract class CI_DB_forge {
 	/**
 	 * Rename Table
 	 *
-	 * @param	string	$table_name	Old datatables name
-	 * @param	string	$new_table_name	New datatables name
+	 * @param	string	$table_name	Old table name
+	 * @param	string	$new_table_name	New table name
 	 * @return	bool
 	 */
 	public function rename_table($table_name, $new_table_name)
 	{
 		if ($table_name === '' OR $new_table_name === '')
 		{
-			show_error('A datatables name is required for that operation.');
+			show_error('A table name is required for that operation.');
 			return FALSE;
 		}
 		elseif ($this->_rename_table === FALSE)
@@ -1021,7 +1021,7 @@ abstract class CI_DB_forge {
 	/**
 	 * Reset
 	 *
-	 * Resets datatables creation vars
+	 * Resets table creation vars
 	 *
 	 * @return	void
 	 */

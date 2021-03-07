@@ -274,9 +274,9 @@ class CI_DB_mssql_driver extends CI_DB {
 	// --------------------------------------------------------------------
 
 	/**
-	 * List datatables query
+	 * List table query
 	 *
-	 * Generates a platform-specific query string so that the datatables names can be fetched
+	 * Generates a platform-specific query string so that the table names can be fetched
 	 *
 	 * @param	bool	$prefix_limit
 	 * @return	string
@@ -399,7 +399,7 @@ class CI_DB_mssql_driver extends CI_DB {
 	 * Generates a platform-specific truncate string from the supplied data
 	 *
 	 * If the database does not support the TRUNCATE statement,
-	 * then this method maps to 'DELETE FROM datatables'
+	 * then this method maps to 'DELETE FROM table'
 	 *
 	 * @param	string	$table
 	 * @return	string

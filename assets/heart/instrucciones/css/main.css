@@ -9,23 +9,6 @@ body {
 	font-size: 1.1em;
 }
 
-
-.principal{
-	width: 80%;
-	margin: 1em auto;
-	padding: 1em 5%;
-	background: #fff;
-}
-
-.multiple{
-	background-color: #f2f2f2;
-	border: 2px solid #ddd;
-	border-radius: 3px;
-	margin: 20px auto;
-	padding: 0 10px;
-}
-
-
 .main-header-irc {
 	background-color: #002b7a !important;
 }
@@ -74,5 +57,3 @@ i {
 	background: #b38ff7;
 	border-color: #986cea;
 }
-
-
