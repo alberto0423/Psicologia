@@ -72,13 +72,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
+$db['default'] = array(
+	  'dsn'	=> '',
+	  'port'	=> '5432',
+	  'hostname' => 'ec2-54-205-61-191.compute-1.amazonaws.com',
+	  'username' => 'nraogmmiwnrmzi',
+	  'password' => '41ccb6cbcbf0c964b611ecd058ebcbbadbc22dc98192162c9e1d250b6648dc9c',
+	  'database' => 'ddu96k2066033e',
+	  'dbdriver' => 'pgsql',
+	  'dbprefix' => '',
+	  'pconnect' => FALSE,
+	  'db_debug' => (ENVIRONMENT !== 'production'),
+	  'cache_on' => FALSE,
+	  'cachedir' => '',
+	  'char_set' => 'utf8',
+	  'dbcollat' => 'utf8_general_ci',
+	  'swap_pre' => '',
+	  'encrypt' => FALSE,
+	  'compress' => FALSE,
+	  'stricton' => FALSE,
+	  'failover' => array(),
+	  'save_queries' => TRUE
+);
 
+
+/*
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => '',
 	'password' => '',
-	'database' => '',
+	'database' => 'psicologia',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -94,3 +118,4 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+*/
